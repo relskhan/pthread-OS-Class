@@ -1,0 +1,18 @@
+find out format of input
+dissect
+put in loop to print
+use loop to call dissecting function with pthread
+
+Hi, 
+
+To make the code multi-threaded, we don't have to physically partition s1. If we first consider a sequential solution, what a single thread would do is this:
+At s1[0], search for n2 consecutive chars and see if they are identical to s2;
+At s1[1], search for n2 consecutive chars and see if they are identical to s2;
+At s1[2], search for n2 consecutive chars and see if they are identical to s2;
+At s1[3], search for n2 consecutive chars and see if they are identical to s2;
+......
+If we have two threads, instead of having them search first/second half of s1, you can do:
+t0 at s1[0], search for n2 consecutive chars and see if they are identical to s2;
+t1 at s1[1], search for n2 consecutive chars and see if they are identical to s2;
+t0 at s1[2], search for n2 consecutive chars and see if they are identical to s2;
+t1 at s1[3], search for n2 consecutive chars and see if they are identical to s2
